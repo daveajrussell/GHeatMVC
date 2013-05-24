@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/pages")
+    @RenderSection("scripts", required: false)
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="div-page-title">
+        @ViewBag.Title
+    </div>
+
+    <section id="main">
+        @Html.Action("Index", "SiteSelection")
+        @RenderBody()
+    </section>
+
+</body>
+</html>
