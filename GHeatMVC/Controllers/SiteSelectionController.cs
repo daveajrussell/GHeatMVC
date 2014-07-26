@@ -23,11 +23,6 @@ namespace GHeatMVC.Controllers
             },
             new SiteSelectionViewModel()
             {
-                Display = "Blog",
-                URL = "http://daveajrussell.wordpress.com/"
-            },
-            new SiteSelectionViewModel()
-            {
                 Display = "Acknowledgements",
                 URL = "http://www.daveajrussell.com/Acknowledgements"
             }
