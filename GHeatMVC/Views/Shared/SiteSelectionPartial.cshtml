@@ -14,7 +14,14 @@
                     @foreach (var item in Model)
                     {
                         <li>
-                            <a href="@Url.Content(@item.URL)">@item.Display</a>
+                            @if (item.IsExternal)
+                            {
+                                <a href="@Url.Content(@item.URL)" target="_blank">@item.Display</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Content(@item.URL)">@item.Display</a>
+                            }
                         </li>
                     }
                 </ul>

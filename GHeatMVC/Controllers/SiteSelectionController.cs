@@ -21,6 +21,12 @@ namespace GHeatMVC.Controllers
                 Display = "Contact",
                 URL = "http://www.daveajrussell.com/Contact"
             },
+             new SiteSelectionViewModel()
+            {
+                Display = "Blog",
+                URL = "http://daveajrussell.wordpress.com",
+                IsExternal = true
+            },
             new SiteSelectionViewModel()
             {
                 Display = "Acknowledgements",

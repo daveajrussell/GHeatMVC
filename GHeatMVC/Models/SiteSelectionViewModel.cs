@@ -9,5 +9,6 @@ namespace GHeatMVC.Models
     {
         public string URL { get; set; }
         public string Display { get; set; }
+        public bool IsExternal { get; set; }
     }
 }
