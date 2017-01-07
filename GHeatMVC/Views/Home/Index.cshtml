@@ -1,88 +1,85 @@
-﻿@{
-    ViewBag.Title = "Development Projects by David Russell";
-}
-
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=en&key=AIzaSyBwj3Xpcnn2FB0zuqe8T4Zs3sxAtozOXNw"></script>
+﻿<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=en&key=AIzaSyBwj3Xpcnn2FB0zuqe8T4Zs3sxAtozOXNw"></script>
 <script type="text/javascript">
 
-    var GHeatMVC = {
+	var GHeatMVC = {
 
-        Init: function () {
-            var self = this;
+		Init: function () {
+			var self = this;
 
-            $(function () {
+			$(function () {
 
-                self.InitMap();
+				self.InitMap();
 
-            });
-        },
+			});
+		},
 
-        InitMap: function () {
-            var map;
-            var initialZoom = 3;
-            var arrOverlay = new Array();
-            var center = new google.maps.LatLng(33.970943, -93.746094);
-            var mapOptions = { scrollwheel: false }
+		InitMap: function () {
+			var map;
+			var initialZoom = 3;
+			var arrOverlay = new Array();
+			var center = new google.maps.LatLng(33.970943, -93.746094);
+			var mapOptions = { scrollwheel: false }
 
-            //Create a map
-            map = new google.maps.Map(document.getElementById("map"), mapOptions);
-            //set the default zoom
-            map.setZoom(initialZoom);
-            //set the default center
-            map.setCenter(center);
-            //Set the map type
-            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+			//Create a map
+			map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			//set the default zoom
+			map.setZoom(initialZoom);
+			//set the default center
+			map.setCenter(center);
+			//Set the map type
+			map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-            arrOverlay = new google.maps.ImageMapType({
-                getTileUrl: function (tile, zoom) {
+			arrOverlay = new google.maps.ImageMapType({
+				getTileUrl: function (tile, zoom) {
 
-                    var url = "Home/Tile?colorScheme=classic&zoom=" + zoom + "&x=" + tile.x + "&y=" + tile.y + "&ran=" + Math.random();
+					var url = "Home/Tile?colorScheme=classic&zoom=" + zoom + "&x=" + tile.x + "&y=" + tile.y + "&ran=" + Math.random();
 
-                    $(arrOverlay).trigger("overlay-busy");
-                    return url;
-                },
-                tileSize: new google.maps.Size(256, 256),
-                isPng: true
-            });
+					$(arrOverlay).trigger("overlay-busy");
+					return url;
+				},
+				tileSize: new google.maps.Size(256, 256),
+				isPng: true
+			});
 
-            $(arrOverlay).bind("overlay-idle", function () {
-                $('#map').unblock();
-            });
+			$(arrOverlay).bind("overlay-idle", function () {
+				$('#map').unblock();
+			});
 
-            $(arrOverlay).bind("overlay-busy", function () {
-                $('#map').block({
-                    css: {
-                        border: 'none',
-                        padding: '1.5em',
-                        backgroundColor: '#000',
-                        '-webkit-border-radius': '.5em',
-                        'border-radius': '.5em',
-                        opacity: .5,
-                        color: '#fff'
-                    },
-                    message: "<div class='overlay'><img class='overlay-img' src='@Url.Content("~/Content/images/map_loader.gif")' /></div>"
-                });
-            });
+			$(arrOverlay).bind("overlay-busy", function () {
+				$('#map').block({
+					css: {
+						border: 'none',
+						padding: '1.5em',
+						backgroundColor: '#000',
+						'-webkit-border-radius': '.5em',
+						'border-radius': '.5em',
+						opacity: .5,
+						color: '#fff'
+					},
+					message: "<div class='overlay'><img class='overlay-img' src='@Url.Content("~/Content/images/map_loader.gif")' /></div>"
+				});
+			});
 
-            map.overlayMapTypes.push(arrOverlay);
+			map.overlayMapTypes.push(arrOverlay);
 
-            google.maps.event.addListener(arrOverlay, 'tilesloaded', function () {
-                $(arrOverlay).trigger("overlay-idle");
-            });
-        }
-    };
+			google.maps.event.addListener(arrOverlay, 'tilesloaded', function () {
+				$(arrOverlay).trigger("overlay-idle");
+			});
+		}
+	};
 
-    GHeatMVC.Init();
+	GHeatMVC.Init();
 </script>
 
-<div class="container page-container">
-    <div id="map">
-    </div>
-
-    <p>
-        A conversion of the GHeat.NET project from&nbsp;<a href="http://www.codeproject.com/Articles/88956/GHeat-NET" target="_blank">Code Project</a>, rewritten for my Final Year Project. 
-    </p>
-    <p>
-        Code can be found at&nbsp;<a href="https://github.com/daveajrussell/GHeatMVC" target="_blank">GitHub</a>.
-    </p>
+<div class="row">
+	<div class="col-12">
+		<div id="map">
+		</div>
+		<p>
+			A conversion of the GHeat.NET project from&nbsp;<a href="http://www.codeproject.com/Articles/88956/GHeat-NET" target="_blank">Code Project</a>, rewritten for my Final Year Project.
+		</p>
+		<p>
+			Code can be found at&nbsp;<a href="https://github.com/daveajrussell/GHeatMVC" target="_blank">GitHub</a>.
+		</p>
+	</div>
 </div>

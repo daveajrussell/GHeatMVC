@@ -1,0 +1,1 @@
+body{background:url(/dist/images/gplaypattern.png) #fff}.container{background-color:#fff}hr{margin:0}nav{margin:1rem}nav .row{padding-top:1rem}nav a{text-decoration:none}a:hover,nav a.current{text-decoration:underline}nav a:before{content:"/";display:inline-block;margin-right:.5rem;margin-left:.5rem}nav a:first-child:before{content:none}

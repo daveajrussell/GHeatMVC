@@ -1,0 +1,39 @@
+body {
+	/* Background pattern from subtlepatterns.com */
+	background: url(/dist/images/gplaypattern.png) repeat #fff;
+}
+
+.container {
+	background-color: #fff;
+}
+
+hr {
+	margin: 0;
+}
+
+nav {
+	margin: 1rem;
+}
+
+	nav .row {
+		padding-top: 1rem;
+	}
+
+	nav a {
+		text-decoration: none;
+	}
+
+		nav a.current, a:hover {
+			text-decoration: underline;
+		}
+
+		nav a:before {
+			content: "/";
+			display: inline-block;
+			margin-right: 0.5rem;
+			margin-left: 0.5rem;
+		}
+
+		nav a:first-child:before {
+			content: none;
+		}
